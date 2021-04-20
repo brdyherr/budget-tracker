@@ -19,7 +19,7 @@ request.onsuccess = function(event) {
 
     // check if app is online, if yes run uploadBudget() function to send all local db data to api
     if (navigator.onLine) {
-        uploadBudget();
+        uploadBudget()
     }
 };
 
@@ -29,7 +29,7 @@ request.onsuccess = function(event) {
     };
 
 // This function will be executed if we attempt to submit a new budget and there's no internet connection
-function uploadBudget(record) {
+function uploadBudget() {
     // open a new transaction with the database with read and write permissions 
     const transaction = db.transaction(['new_budget'], 'readwrite');
 
@@ -39,3 +39,6 @@ function uploadBudget(record) {
     // add record to your store with add method
     budgetObjectStore.add(record);
 }
+
+
+window.addEventListener('online', uploadBudget);
