@@ -29,7 +29,7 @@ request.onsuccess = function(event) {
     };
 
 // This function will be executed if we attempt to submit a new budget and there's no internet connection
-function saveRecord(record) {
+function uploadBudget(record) {
     // open a new transaction with the database with read and write permissions 
     const transaction = db.transaction(['new_budget'], 'readwrite');
 
